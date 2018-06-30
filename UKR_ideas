@@ -1,0 +1,44 @@
+UKR_war_of_independance = { 
+	picture = 
+	modifier = { 
+		war_support_factor = 0.2
+		stability_factor = 0.2
+		mobilization_speed = 0.2
+	}
+}
+
+UKR_ENG_advisors = { 
+	picture = 
+	modifier = {
+		max_planning = 0.1
+		planning_speed = 0.1
+		air_strategic_bomber_bombing_factor = 0.15
+	}
+}
+
+UKR_GER_advisors = { 
+	picture = 
+	modifier = {
+		army_attack_factor = 0.1
+		army_speed_factor = 0.1
+		air_close_air_support_attack_factor = 0.1
+	}
+}
+
+UKR_USA_advisors = {
+	picture = 
+	modifier = {
+		land_reinforce_rate = 0.1
+		army_morale_factor	= 0.2
+		air_interception_attack_factor = 0.15
+	}
+}
+
+UKR_JAP_advisors = {
+	picture = 
+	modifier = {
+		planning_speed = 0.2
+		land_reinforce_rate = 0.05
+		air_interception_agility_factor = 0.15
+	}
+}

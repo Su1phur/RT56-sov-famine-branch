@@ -1,0 +1,266 @@
+SOV_prevent_another_famine = {
+	icon = generic_construction
+
+	SOV_build_food_stock = { 
+		icon = generic_construction
+			avalible = {
+				NOT = { 
+					has_idea = { SOV_ample_food_supply }
+				}
+			}
+			fire_once_only = no
+			cost = 100
+			days_re_enable = 1
+			complete_effect = {
+				AND = { 
+					add_timed_idea = { 
+						SOV_stocking_wheat
+						days = 90
+					}
+					swap_ideas = { 
+						remove_idea = 
+						add_idea = 
+					}
+				}
+			}
+		}
+
+	SOV_use_stock_4_stability = { 
+		icon  = generic_construction
+			avalible = {
+				NOT = {
+					has_country_flag = 
+					}
+				}
+			complete_effect = {
+				add_timed_idea = {
+					SOV_using_stock
+					days = 70
+				}
+			}
+			fire_once_only = no
+			cost = 50
+			days_re_enable = 1
+	}
+
+	SOV_tank_crush_rebellion = {
+		icon = generic_tank
+		avalible = {
+			NOT = {
+				has_idea = SOV_ukr_rebellion
+			}
+		}
+		complete_effect = {
+			swap_ideas = {
+				remove_idea = SOV_UKR_rebellion
+		   		add_idea = SOV_UKR_rebellion_crushed
+			}
+		}
+	}
+}
+
+SOV_unite_the_union = { 
+	icon = political_power
+
+	SOV_prioritise_rus = { 
+		icon = 
+		avalible = { 
+			NOT = {
+				has_idea = SOV_all_the_same 
+			}
+		}
+		complete_effect = {
+			hidden_effect = { SOV_RUS_Prioritised }
+		}
+		fire_once_only = yes
+		cost = 10
+	}
+
+	SOV_all_the_same = {
+		icon = 
+		avalible = { 
+			NOT = { 
+				has_idea = SOV_RUS_Prioritised
+			}
+		}
+		complete_effect = { 
+			hidden_effect = { SOV_all_the_same }
+		}
+		fire_once_only = yes
+		cost = 10
+	}
+
+	SOV_help_blr = {
+		icon = 
+		avalible = { 
+			has_idea = {
+				AND = { 
+					SOV_all_the_same 
+					OR = { 
+						SOV_minor_famine
+						SOV_mass_famine
+					}
+				}
+			}
+		}
+		complete_effect = { 
+			hidden_effect = { SOV_helped_BLR }
+			days_remove = 100
+			modifier = { 
+				civilian_factory_use = 5
+			}
+		}
+	}
+
+	SOV_help_ukr = {
+		icon = 
+		avalible = { 
+			has_idea = {
+				AND = { 
+					SOV_all_the_same 
+					OR = { 
+						SOV_minor_famine
+						SOV_mass_famine
+					}
+				}
+			}
+		}
+		complete_effect = { 
+			hidden_effect = { SOV_helped_ukr }
+			days_remove = 100
+			modifier = { 
+				civilian_factory_use = 5
+			}
+		}
+	}
+
+	SOV_Moscow_arms = { 
+		icon = 
+		avalible = { 
+			has_idea = { 
+				SOV_RUS_Prioritised
+			}
+		}
+		cost = 10
+		fire_once_only = yes
+		complete_effect = { 
+			219 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	SOV_Leningrad_shipyard = { 
+		icon = 
+		avalible = { 
+			has_idea = { 
+				SOV_RUS_Prioritised
+			}
+		}
+		cost = 10
+		fire_once_only = yes
+		complete_effect = { 
+			195 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	SOV_far_east_naval_bases = { 
+		icon = 
+		avalible = {
+			has_idea = { 
+				SOV_all_the_same
+			}
+		}
+		cost = 10
+		fire_once_only = yes
+		complete_effect = { 
+			957 = { 
+				add_building_construction = {
+					type = port
+					level = 2
+					instant_build = yes
+				}
+			}
+			hidden_effect = { SOV_far_east_naval_base }
+		}
+	}
+
+	SOV_far_east_dockyard = { 
+		icon = 
+		avalible = {
+			has_idea = { 
+				AND = {
+				SOV_all_the_same
+				SOV_far_east_naval_bases
+				}
+			}
+		}
+		cost = 25
+		fire_once_only = yes
+		complete_effect = { 
+			408 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	SOV_kiev_tank_factories = {
+		icon = generic_tank
+		avalible = { 
+			has_idea = { 
+				SOV_all_the_same
+			}
+		}
+		cost = 25
+		fire_once_only = yes
+		complete_effect = { 
+			202 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	SOV_Murmansk_airfields ={ 
+		icon = generic_plane
+		avalible = { 
+			has_idea = { 
+				SOV_all_the_same
+			}
+		}
+		cost = 25
+		fire_once_only = yes
+		complete_effect = { 
+			213 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = airbase
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	}
+}

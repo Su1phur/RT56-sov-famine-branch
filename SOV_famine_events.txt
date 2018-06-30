@@ -1,0 +1,134 @@
+country_event = { 	
+	id = SOV.famine.UKR	
+	title = SOV.famine.ukr.rebell
+	picture = 
+	fire_only_once = yes	
+	trigger = {	
+		has_idea = 
+	}
+	
+	mean_time_to_happen = { days = 1 } 
+
+	option = { 
+		name = SOV.ukr.war
+		release = UKR
+		declare_war_on = UKR
+		effect_tooltip = {
+			release = UKR
+			declare_war_on = UKR 
+		}
+	}
+}
+
+country_event = {
+	id = SOV.famine.CAU
+	title = SOV.famine.CAU.rebell
+	picture = 
+	fire_only_once = yes
+
+	trigger = {
+		has_idea = {	
+			AND = {
+				SOV_UKR_sympathisers
+				SOV_UKR_rebellion
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = SOV.Cau.war		
+		release = 
+		declare_war_on = 
+		effect_tooltip = {
+			release = 
+			declare_war_on = 
+		}
+	}
+}
+
+country_event = { 
+	id = SOV.famine.blr
+	title = SOV.famine.blr.rebell
+	picture = 
+	fire_only_once = yes
+	
+	trigger = {
+		has_idea = {
+			AND = {		
+				SOV_ukr_sympathisers		
+				SOV_blr_sympathise_ukr
+			} 
+		}
+	}
+	mean_time_to_happen = { days = 1 } 	
+	
+	option = {
+		name = SOV.blr.war	
+		declare_war_on = BLR	
+		effect_tooltip = {
+			declare_war_on = BLR		
+		}
+	}
+}
+
+country_event = {
+	id = SOV.blr.independent.movement
+	title = SOV.famaine.blr.independent.movement
+	picture = 
+	fire_only_once = yes
+	trigger = { 
+		has_idea = {  
+			SOV_ukr_sympathisers
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = { 
+		name = SOV.blr.allow.independent
+		release = blr
+		remove_state_core = 94
+		remove_state_core = 95
+		remove_state_core = 96
+		remove_state_core = 97
+		remove_state_core = 194
+		remove_state_core = 204
+		remove_state_core = 206
+		remove_state_core = 207
+		remove_state_core = 241
+		puppet = BLR
+		set_autonomy = {
+			target = BLR
+			autonomy_state = dominion
+		} 
+		effect_tooltip = {
+			release = BLR
+		}
+	}
+	option = {
+	    name = SOV.blr.deny.independent
+	    trigger = {
+	   	    at_peace = yes
+	   	}
+	   	hidden_effect = { set_country_flag = { SOV.blr.denied.independent } }
+		remove_state_core = 94
+		remove_state_core = 95
+		remove_state_core = 96
+		remove_state_core = 97
+		remove_state_core = 194
+		remove_state_core = 204
+		remove_state_core = 206
+		remove_state_core = 207
+		remove_state_core = 241
+		add_state_claim = 94
+		add_state_claim = 95
+		add_state_claim = 96
+		add_state_claim = 97
+		add_state_claim = 194
+		add_state_claim = 204
+		add_state_claim = 206
+		add_state_claim = 207
+		add_state_claim = 241
+	}
+}
+

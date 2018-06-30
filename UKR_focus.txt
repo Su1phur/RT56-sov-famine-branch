@@ -1,0 +1,272 @@
+# Ukraine focus tree for Road to 56 by Su1phur
+
+focus_tree = {
+	id = ukraine_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	
+	default = no
+
+	focus = { 
+		id = independance_measures
+		icon = GFX_goal_support_democracy
+		x = 4
+		y = 0
+
+		cost = 3
+
+		ai_will_do = { 
+			factor = 12
+		}
+
+		completion_reward = { 
+			war_support_factor = 0.1
+		}
+	}
+
+	focus = { 
+		id = nationalise_industries
+		icon = GFX_goal_generic_construct_mil_factory
+		text = 
+		x = 2
+		y = 1
+		prerequisite = { independance_measures } 
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	focus = {
+		id = upper_volga_line
+		icon = GFX_goal_generic_fortify_city
+		text = 
+		x = 1
+		y = 2
+		prerequisite = { nationalise_industries } 
+
+		cost = 5
+
+		ai_will_do = { 
+			factor = 
+		}
+
+		avalible = {
+			has_war = yes
+			surrender_ratio > 0.1
+			controls_state = { 202 203 }
+		}
+
+		completion_reward = {
+			202 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9569
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3543
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 525
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3494
+					instant_build = yes
+				}
+			}
+			203 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11454
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 458
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3468
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6478
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = lower_volga_line
+		icon = GFX_goal_generic_fortify_city
+		text = 
+		x = 0
+		y = 1
+		relative_position_id = { upper_volga_line }
+		prerequisite = { upper_volga_line } 
+				
+		cost = 5
+
+		ai_will_do = { 
+			factor = 
+		}
+
+		avalible = {
+			has_war = yes
+			surrender_ratio > 0.1
+			controls_state = { 226 }
+		}
+		completion_reward = { 
+			226 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 
+					instant_build = yes
+				}
+			}
+		} 
+	}
+
+	focus = { 
+		id = foreign_military_advisor
+		icon = GFX_goal_generic_land_doctrine
+		text = 
+		x = 0
+		y = 1
+		relative_position_id = { independance_measures } 
+		prerequisite = { independance_measure } 
+
+		cost = 5
+
+		ai_will_do = { 
+			factor = 
+		} 
+
+		avalible = { 
+			has_war = yes 
+		}
+		
+		completion_reward = { 
+			country_event = {
+				days = 1	
+				id = UKR.land.a
+			}
+		complete_tooltip = {
+			country_event = { id = UKR.land.a } 
+		} 
+	}
+
+	focus = { 
+		id = purchase_foreign_planes
+		icon = GFX_goal_generic_air_doctrine
+		text = 
+		x = 0
+		y = 1
+		relative_position_id = { foreign_military_advisor } 
+		prerequisite = { foreign_military_advisor } 
+
+		cost = 5
+
+		ai_will_do = { 
+			factor = 
+		} 
+
+		avalible = { 
+			has_war = yes
+		} 
+
+		completion_reward = { 
+			country_event = {
+				days = 1
+				UKR.air.a
+			}
+		}
+		complete_tooltip = { 
+			country_event = { id = UKR.air.a } 
+		}
+	}
+
+	##########
+	#POLITICS#
+	##########
+
+	focus = { 
+		id = establish_foreign_embassies
+		icon = 
+		text = 
+		x = 10
+		y = 0
+		relative_position_id = { independance_measures } 
+		avalible = { 
+			at_peace = yes
+		} 
+		
+		completion_reward = [ 
+			pp = 150
+		}
+
+		complete_tooltip = {
+			pp = 150
+		}
+	}
+}

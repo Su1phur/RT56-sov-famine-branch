@@ -1,0 +1,77 @@
+SOV_risk_of_famine = { 
+	picture = raj_risk_of_famine
+	allowed_civil_war = {
+		yes
+	}
+	modifier = { }
+}
+
+SOV_ample_food_supply = { 
+	picture = 
+	allowed_civil_war = { 
+		yes
+	}
+	modifier = { 
+		stability_factor = 0.05
+		production_factory_max_efficiency_factor = 0.05
+	}
+}
+
+SOV_minor_famine = { 
+	picture = 
+	allowed_civil_war = {
+		yes
+	}
+	modifier = {	
+		stability_factor = -0.05
+		production_factory_max_efficiency_factor = -0.05
+	}
+}
+
+SOV_mass_famine = { 
+	picture = 
+	allowed_civil_war = {
+		yes
+	}
+	modifier = {	
+		stability_factor = -0.15
+		production_factory_max_efficiency_factor = -0.15
+	}
+}
+
+SOV_stocking_wheat = { 
+	picture = 
+	allowed_civil_war = { no }
+	modifier = { 
+		consumer_goods_factor = 0.2
+	}
+}
+
+SPV_using_stock = {
+	picture = 
+	allowed_civil_war = { no }
+	modifier = {
+		stability_weekly = 0.01
+		war_support_weekly = 0.01
+	}
+}
+
+SOV_ukr_rebellion = { 
+	picture = UKR_Rebellion2
+}
+
+SOV_ukr_rebellion_crushed = { 
+	picture = generic_oppression
+}
+
+SOV_blr_rebellion = {
+	picture = BLR_Rebellion
+}
+
+SOV_ukr_war = {
+	picture = UKR_Rebellion2
+}
+
+SOV_ukr_sympathizers = { 
+	picture = 
+}
